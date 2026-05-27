@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detail produk KELVIN STORE.">
+  <title data-page="Product">Product — KELVIN STORE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animation.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" data-static="true">KELVIN</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="index.html#about">About</a>
+    </div>
+    <div class="nav-actions">
+      <a href="https://tiktok.com/@kelvinstorexd" target="_blank" rel="noopener" class="nav-icon-btn" title="TikTok">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.54V6.78a4.85 4.85 0 01-1.02-.09z"/></svg>
+      </a>
+      <a href="https://youtube.com/@kelvin_offc" target="_blank" rel="noopener" class="nav-icon-btn" title="YouTube">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 00-2.12-2.14C19.54 3.6 12 3.6 12 3.6s-7.54 0-9.38.45A3.02 3.02 0 00.5 6.19 31.6 31.6 0 000 12a31.6 31.6 0 00.5 5.81 3.02 3.02 0 002.12 2.14C4.46 20.4 12 20.4 12 20.4s7.54 0 9.38-.45a3.02 3.02 0 002.12-2.14A31.6 31.6 0 0024 12a31.6 31.6 0 00-.5-5.81zM9.75 15.52V8.48L15.5 12l-5.75 3.52z"/></svg>
+      </a>
+      <button class="nav-icon-btn cart-btn" aria-label="Keranjang belanja">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-badge">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ MOBILE NAV ═══ -->
+<div id="mobile-nav" role="dialog" aria-modal="true">
+  <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Tutup menu">×</button>
+  <nav class="mobile-nav-links">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="index.html#about">About</a>
+  </nav>
+  <div class="mobile-nav-socials">
+    <button class="nav-icon-btn cart-btn" aria-label="Keranjang">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      <span class="cart-badge">0</span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══ BREADCRUMB ═══ -->
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="products.html">Products</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current" id="breadcrumb-current">Loading...</span>
+  </nav>
+</div>
+
+<!-- ═══ PRODUCT MAIN ═══ -->
+<div class="container" id="product-main">
+  <div class="product-layout">
+
+    <!-- ── LEFT: Gallery ── -->
+    <div>
+      <div class="gallery-main" id="gallery-main">
+        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:var(--gray-100)">
+          <div class="spinner"></div>
+        </div>
+      </div>
+      <div class="gallery-thumbs" id="gallery-thumbs"></div>
+      <p style="font-size:var(--text-xs);color:var(--gray-500);margin-top:8px;text-align:center">Klik gambar untuk memperbesar tampilan</p>
+    </div>
+
+    <!-- ── RIGHT: Info ── -->
+    <div>
+      <div id="product-detail-badge"></div>
+      <h1 class="product-detail-name" id="product-detail-name">Memuat produk...</h1>
+      <div class="product-detail-meta" id="product-detail-meta"></div>
+
+      <div class="product-detail-price" id="product-detail-price">—</div>
+      <div class="product-detail-original" id="product-detail-original"></div>
+
+      <p class="product-short-desc" id="product-short-desc"></p>
+
+      <!-- Sizes -->
+      <div class="size-wrap">
+        <div class="option-label">Ukuran</div>
+        <div class="size-pills" id="size-pills"></div>
+      </div>
+
+      <!-- Colors -->
+      <div class="color-wrap" style="margin-bottom:24px">
+        <div class="option-label">Warna</div>
+        <div class="color-dots" id="color-dots"></div>
+      </div>
+
+      <!-- Qty -->
+      <div class="option-label">Jumlah</div>
+      <div class="qty-row" style="margin-bottom:24px">
+        <button class="qty-btn" id="qty-minus" aria-label="Kurangi jumlah">−</button>
+        <div class="qty-num" id="qty-num">1</div>
+        <button class="qty-btn" id="qty-plus" aria-label="Tambah jumlah">+</button>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="product-cta">
+        <button class="btn-primary" id="add-to-cart-btn" style="width:100%;padding:18px 24px;font-size:var(--text-lg)">
+          + TAMBAH KE KERANJANG
+        </button>
+        <button class="btn-secondary" id="wa-direct-btn" style="width:100%;padding:18px 24px;font-size:var(--text-lg);display:flex;align-items:center;justify-content:center;gap:8px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          ORDER VIA WHATSAPP
+        </button>
+      </div>
+
+      <!-- Stock & SKU -->
+      <div id="product-stock"></div>
+      <div class="product-meta-row">
+        <span>SKU: <strong id="product-sku">—</strong></span>
+        <span>Berat: <strong id="product-weight">—</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ TABS ═══ -->
+  <div class="tabs-wrap">
+    <div class="tabs-nav" style="display:flex">
+      <input type="radio" name="tabs" id="tab-desc" class="tab-radio" checked>
+      <label class="tab-label" for="tab-desc">Deskripsi</label>
+      <input type="radio" name="tabs" id="tab-spec" class="tab-radio">
+      <label class="tab-label" for="tab-spec">Spesifikasi</label>
+      <input type="radio" name="tabs" id="tab-review" class="tab-radio">
+      <label class="tab-label" for="tab-review">Ulasan</label>
+
+      <div class="tab-content tab-content-desc" id="tab-desc-content">
+        <p style="color:var(--gray-500)">Memuat deskripsi...</p>
+      </div>
+      <div class="tab-content tab-content-spec" id="tab-spec-content">
+        <p style="color:var(--gray-500)">Memuat spesifikasi...</p>
+      </div>
+      <div class="tab-content tab-content-review" id="tab-review-content">
+        <p style="color:var(--gray-500)">Memuat ulasan...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ RELATED PRODUCTS ═══ -->
+  <div class="related-section">
+    <div class="section-header">
+      <h2 class="section-heading reveal">PRODUK SERUPA</h2>
+      <a href="products.html" class="btn-view-all">LIHAT SEMUA →</a>
+    </div>
+    <div class="products-grid" id="related-grid" style="grid-template-columns:repeat(4,1fr)">
+      <!-- Injected by product.js -->
+    </div>
+  </div>
+</div>
+
+<!-- ═══ WHATSAPP STICKY BUTTON ═══ -->
+<a href="https://wa.me/6285741137312" target="_blank" rel="noopener"
+   style="position:fixed;bottom:28px;right:28px;z-index:500;width:56px;height:56px;background:#25D366;border:var(--border);box-shadow:var(--shadow-md);display:flex;align-items:center;justify-content:center;transition:var(--transition)"
+   title="Chat WhatsApp"
+   onmouseover="this.style.transform='translate(-2px,-2px)';this.style.boxShadow='var(--shadow-lg)'"
+   onmouseout="this.style.transform='';this.style.boxShadow='var(--shadow-md)'">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="footer" style="margin-top:80px">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">KELVIN</div>
+        <p class="footer-about">Brand streetwear lokal Indonesia. Bold design, premium quality.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <nav class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="products.html">All Products</a>
+          <a href="products.html?filter=new">New Arrivals</a>
+          <a href="products.html?filter=sale">Sale</a>
+        </nav>
+      </div>
+      <div>
+        <div class="footer-col-title">Follow Us</div>
+        <div class="social-links">
+          <a href="https://tiktok.com/@kelvinstorexd" target="_blank" rel="noopener" class="social-link">
+            <span class="social-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.54V6.78a4.85 4.85 0 01-1.02-.09z"/></svg></span>
+            @kelvinstorexd
+          </a>
+          <a href="https://wa.me/6285741137312" target="_blank" rel="noopener" class="social-link">
+            <span class="social-icon">💬</span> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2025 KELVIN STORE. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ CART DRAWER ═══ -->
+<div id="cart-overlay"></div>
+<aside id="cart-drawer" aria-label="Keranjang belanja" role="dialog">
+  <div class="cart-header">
+    <span class="cart-title" id="cart-title-count">CART (0 items)</span>
+    <button class="cart-close" id="cart-close" aria-label="Tutup">×</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-subtotal">
+      <span class="cart-subtotal-label">Subtotal</span>
+      <span class="cart-subtotal-value" id="cart-subtotal">Rp 0</span>
+    </div>
+    <div class="cart-actions">
+      <button class="btn-primary" id="cart-wa-btn" style="width:100%;display:flex;align-items:center;justify-content:center;gap:8px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        ORDER VIA WHATSAPP
+      </button>
+      <button class="btn-ghost" onclick="closeCart()" style="width:100%">LANJUT BELANJA</button>
+    </div>
+  </div>
+</aside>
+<div id="toast-container" aria-live="polite"></div>
+
+<!-- Fix tabs CSS: move tab content outside nav -->
+<style>
+  .tabs-nav { position: relative; display: flex; }
+  .tab-content { display: none; padding: 32px; width: 100%; }
+  #tab-desc:checked   ~ .tab-content-desc   { display: block; }
+  #tab-spec:checked   ~ .tab-content-spec   { display: block; }
+  #tab-review:checked ~ .tab-content-review { display: block; }
+  .tabs-wrap { display: flex; flex-direction: column; border: var(--border); margin-top: 60px; }
+  .tabs-nav  { border-bottom: var(--border); display: flex; }
+</style>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script src="../settings.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/animation.js"></script>
+<script src="assets/js/product.js"></script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — KELVIN STORE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animation.css">
+  <link rel="stylesheet" href="assets/css/dashboard.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+<!-- Mobile sidebar toggle -->
+<button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<div class="dashboard-layout">
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <span class="sidebar-logo-text">KELVIN</span>
+      <span class="sidebar-badge">Admin</span>
+    </div>
+    <nav class="sidebar-nav" role="navigation" aria-label="Dashboard navigation">
+      <a class="sidebar-nav-item" data-tab="overview" href="#overview">
+        <span class="sidebar-nav-icon">◈</span> Overview
+      </a>
+      <a class="sidebar-nav-item" data-tab="products" href="#products">
+        <span class="sidebar-nav-icon">◉</span> Products
+      </a>
+      <a class="sidebar-nav-item" data-tab="banners" href="#banners">
+        <span class="sidebar-nav-icon">▣</span> Banners
+      </a>
+      <a class="sidebar-nav-item" data-tab="categories" href="#categories">
+        <span class="sidebar-nav-icon">◆</span> Categories
+      </a>
+      <a class="sidebar-nav-item" data-tab="settings" href="#settings">
+        <span class="sidebar-nav-icon">⚙</span> Settings
+      </a>
+      <div style="height:1px;background:rgba(250,250,250,0.12);margin:12px 10px"></div>
+      <a class="sidebar-nav-item" href="index.html" style="font-size:var(--text-sm)">
+        <span class="sidebar-nav-icon">←</span> Ke Toko
+      </a>
+    </nav>
+    <div class="sidebar-bottom">© 2025 KELVIN STORE</div>
+  </aside>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <main class="dashboard-main">
+
+    <!-- ── OVERVIEW ── -->
+    <div class="dashboard-page active" id="page-overview">
+      <div class="dashboard-page-header">
+        <h1 class="dashboard-page-title">Overview</h1>
+        <span style="font-size:var(--text-sm);color:var(--gray-500)" id="dash-date"></span>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-card-icon">◉</div>
+          <div class="stat-card-value" id="stat-total-products">—</div>
+          <div class="stat-card-label">Total Produk</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-icon">◆</div>
+          <div class="stat-card-value" id="stat-total-categories">—</div>
+          <div class="stat-card-label">Total Kategori</div>
+        </div>
+        <div class="stat-card" style="border-left:4px solid #FF3D00">
+          <div class="stat-card-icon">⚠</div>
+          <div class="stat-card-value" id="stat-low-stock" style="color:#FF3D00">—</div>
+          <div class="stat-card-label">Stok Rendah (&lt;5)</div>
+        </div>
+        <div class="stat-card accent-card">
+          <div class="stat-card-icon">📦</div>
+          <div class="stat-card-value" id="stat-total-sold">—</div>
+          <div class="stat-card-label">Total Terjual</div>
+        </div>
+      </div>
+
+      <!-- Recent products -->
+      <div class="table-wrap">
+        <div class="table-header">
+          <span class="table-title">Produk Terbaru</span>
+          <a href="#products" class="btn-table btn-table-edit" onclick="switchTab('products')">Lihat Semua</a>
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width:60px">Foto</th>
+              <th>Nama</th>
+              <th>Kategori</th>
+              <th>Harga</th>
+              <th>Stok</th>
+            </tr>
+          </thead>
+          <tbody id="recent-products-tbody">
+            <tr><td colspan="5" style="text-align:center;padding:32px;color:var(--gray-500)">Memuat data...</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Quick links -->
+      <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap">
+        <a href="index.html" target="_blank" class="btn-ghost" style="padding:10px 20px;font-size:var(--text-sm)">← Lihat Toko</a>
+        <a href="products.html" target="_blank" class="btn-ghost" style="padding:10px 20px;font-size:var(--text-sm)">Halaman Produk ↗</a>
+      </div>
+    </div>
+
+    <!-- ── PRODUCTS ── -->
+    <div class="dashboard-page" id="page-products">
+      <div class="dashboard-page-header">
+        <h1 class="dashboard-page-title">Products</h1>
+        <button class="btn-primary" id="add-product-btn">+ ADD PRODUCT</button>
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-header">
+          <span class="table-title" id="products-table-count">Semua Produk</span>
+          <input type="search" class="table-search" id="product-table-search" placeholder="Cari produk...">
+        </div>
+        <div style="overflow-x:auto">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width:60px">Foto</th>
+                <th>Nama & SKU</th>
+                <th>Kategori</th>
+                <th>Harga</th>
+                <th>Stok</th>
+                <th>Badge</th>
+                <th style="width:140px">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="products-tbody">
+              <tr><td colspan="7" style="text-align:center;padding:48px;color:var(--gray-500)">Memuat produk...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BANNERS ── -->
+    <div class="dashboard-page" id="page-banners">
+      <div class="dashboard-page-header">
+        <h1 class="dashboard-page-title">Banners</h1>
+        <span style="font-size:var(--text-sm);color:var(--gray-500)">Edit tampilan hero slider</span>
+      </div>
+      <div class="banners-grid" id="banners-grid">
+        <div style="text-align:center;padding:48px;color:var(--gray-500)">Memuat banner...</div>
+      </div>
+    </div>
+
+    <!-- ── CATEGORIES ── -->
+    <div class="dashboard-page" id="page-categories">
+      <div class="dashboard-page-header">
+        <h1 class="dashboard-page-title">Categories</h1>
+        <button class="btn-primary" id="add-category-btn">+ TAMBAH KATEGORI</button>
+      </div>
+
+      <div style="background:var(--white);border:var(--border);padding:20px;margin-bottom:20px;box-shadow:var(--shadow-sm)">
+        <div class="categories-list" id="categories-list">
+          <div style="text-align:center;padding:32px;color:var(--gray-500)">Memuat kategori...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SETTINGS ── -->
+    <div class="dashboard-page" id="page-settings">
+      <div class="dashboard-page-header">
+        <h1 class="dashboard-page-title">Settings</h1>
+        <button class="btn-primary" id="save-settings-btn">SIMPAN PENGATURAN</button>
+      </div>
+
+      <!-- Store Info -->
+      <div class="settings-section">
+        <div class="settings-section-title">Informasi Toko</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nama Toko</label>
+            <input type="text" id="setting-storeName" placeholder="KELVIN STORE">
+          </div>
+          <div class="form-group">
+            <label>Tagline</label>
+            <input type="text" id="setting-storeTagline" placeholder="Shop Bold. Live Sharp.">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="setting-email" placeholder="hello@kelvinstore.id">
+          </div>
+          <div class="form-group">
+            <label>Alamat</label>
+            <input type="text" id="setting-address" placeholder="Indonesia">
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="settings-section">
+        <div class="settings-section-title">Kontak & Sosial Media</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nomor WhatsApp</label>
+            <input type="text" id="setting-whatsapp" placeholder="6285741137312">
+          </div>
+          <div class="form-group">
+            <label>URL TikTok</label>
+            <input type="text" id="setting-tiktok" placeholder="https://tiktok.com/@kelvinstorexd">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>URL YouTube</label>
+          <input type="text" id="setting-youtube" placeholder="https://youtube.com/@kelvin_offc">
+        </div>
+      </div>
+
+      <!-- Store notes -->
+      <div class="settings-section">
+        <div class="settings-section-title">Catatan Toko</div>
+        <div class="form-group">
+          <label>Info Pengiriman</label>
+          <input type="text" id="setting-shippingNote" placeholder="Free shipping for orders above Rp 200.000">
+        </div>
+        <div class="form-group">
+          <label>Catatan Order</label>
+          <textarea id="setting-orderNote" rows="2" style="resize:vertical" placeholder="Order sekarang via WhatsApp..."></textarea>
+        </div>
+      </div>
+
+      <!-- Accent color -->
+      <div class="settings-section">
+        <div class="settings-section-title">Tampilan</div>
+        <div class="form-group">
+          <label>Warna Aksen</label>
+          <div class="color-picker-wrap">
+            <input type="color" id="setting-accentColor" value="#FFE500">
+            <span class="color-picker-value" id="setting-accentValue">#FFE500</span>
+            <span style="font-size:var(--text-xs);color:var(--gray-500);margin-left:8px">(digunakan di logo, tombol, highlights)</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;margin-top:8px">
+        <button class="btn-primary" id="save-settings-btn-bottom" onclick="saveSettings()">SIMPAN PENGATURAN</button>
+        <span style="font-size:var(--text-xs);color:var(--gray-500);align-self:center">Data disimpan di browser lokal (localStorage)</span>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ═══ MODAL ═══ -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <span class="modal-title" id="modal-title">Modal</span>
+      <button class="modal-close" id="modal-close" aria-label="Tutup modal">×</button>
+    </div>
+    <div id="modal-body"></div>
+    <div class="modal-footer" id="modal-footer"></div>
+  </div>
+</div>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script src="../settings.js"></script>
+<script>
+  // fetchJSON for dashboard (relative path override)
+  async function fetchJSON(path) {
+    try {
+      const res = await fetch(path);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return await res.json();
+    } catch(e) {
+      console.warn('fetchJSON error:', path, e.message);
+      return [];
+    }
+  }
+  function formatPrice(n) {
+    return 'Rp ' + (n||0).toLocaleString('id-ID');
+  }
+  function showToast(msg, type) { showDashToast(msg, type); }
+
+  // Set date
+  document.addEventListener('DOMContentLoaded', () => {
+    const el = document.getElementById('dash-date');
+    if (el) el.textContent = new Date().toLocaleDateString('id-ID', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+  });
+</script>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>
