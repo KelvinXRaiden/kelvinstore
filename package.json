@@ -1,0 +1,12 @@
+{
+  "name": "kelvin-store",
+  "version": "1.0.0",
+  "description": "KELVIN STORE — Neo Brutalism store. HTML/CSS/JS only.",
+  "scripts": {
+    "dev": "npx serve public -p 3000",
+    "start": "npx serve public -p 3000"
+  },
+  "keywords": ["ecommerce", "neo-brutalism", "kelvin-store"],
+  "author": "KELVIN STORE",
+  "license": "MIT"
+}
