@@ -1,0 +1,204 @@
+/* ═══════════════════════════════════════════════
+   KELVIN STORE — responsive.css
+═══════════════════════════════════════════════ */
+
+/* ── 1024px: Tablet ── */
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .products-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .hero-content { grid-template-columns: 1fr; gap: 40px; }
+  .hero-shape { display: none; }
+  #hero { min-height: 60vh; }
+  .hero-slider, .hero-slide { min-height: 60vh; }
+
+  .products-layout { grid-template-columns: 240px 1fr; gap: 20px; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer-grid > :first-child { grid-column: 1 / -1; }
+
+  .product-layout { gap: 40px; }
+
+  .proof-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .loading-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── 768px: Mobile ── */
+@media (max-width: 768px) {
+  :root {
+    --text-5xl: 3rem;
+    --text-4xl: 2.25rem;
+    --text-3xl: 1.75rem;
+  }
+
+  .section { padding: 60px 0; }
+  .container { padding: 0 16px; }
+
+  /* Navbar */
+  .nav-actions .nav-icon-btn:not(.cart-btn) { display: none; }
+  .hamburger { display: flex; }
+  .nav-links { display: none; }
+
+  /* Hero */
+  #hero { min-height: 75vh; }
+  .hero-slider, .hero-slide { min-height: 75vh; }
+  .hero-content {
+    grid-template-columns: 1fr;
+    padding: 60px 16px;
+    gap: 32px;
+  }
+  .hero-shape { display: none; }
+  .hero-title { font-size: clamp(2.5rem, 10vw, 4rem); }
+  .hero-controls { bottom: 20px; }
+
+  /* Products grid */
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .loading-grid  { grid-template-columns: repeat(2, 1fr); }
+
+  /* Products layout */
+  .products-layout { grid-template-columns: 1fr; }
+  .filter-sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 85vw;
+    max-width: 320px;
+    z-index: 2000;
+    overflow-y: auto;
+    box-shadow: var(--shadow-lg);
+  }
+  .filter-sidebar.open { display: block; }
+  .filter-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.5);
+    z-index: 1999;
+    display: none;
+  }
+  .filter-overlay.open { display: block; }
+  .mobile-filter-btn { display: flex; }
+
+  /* Product detail */
+  .product-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* Categories */
+  .categories-grid { gap: 10px; }
+  .category-card { flex: 0 0 160px; padding: 20px 16px; }
+
+  /* Social proof */
+  .proof-grid { grid-template-columns: 1fr; }
+  .proof-item { border-right: none; border-bottom: 2px solid rgba(250, 250, 250, 0.15); }
+  .proof-item:last-child { border-bottom: none; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  /* Section header */
+  .section-header { flex-wrap: wrap; }
+  .section-heading { font-size: var(--text-3xl); }
+
+  /* Cart drawer */
+  #cart-drawer { width: 100%; }
+
+  /* WA CTA */
+  .wacta-section { padding: 60px 0; }
+
+  /* Tabs */
+  .tab-label { padding: 12px 8px; font-size: var(--text-xs); }
+}
+
+/* ── 480px: Small mobile ── */
+@media (max-width: 480px) {
+  :root {
+    --text-4xl: 2rem;
+    --text-3xl: 1.5rem;
+    --text-2xl: 1.25rem;
+  }
+
+  .section { padding: 48px 0; }
+
+  .hero-title { font-size: clamp(2rem, 12vw, 3rem); }
+  #hero { min-height: 85vh; }
+  .hero-slider, .hero-slide { min-height: 85vh; }
+
+  .products-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .product-info { padding: 10px; }
+  .product-name { font-size: var(--text-base); }
+  .product-price { font-size: var(--text-base); }
+  .btn-add-cart { font-size: var(--text-xs); padding: 8px 10px; }
+
+  .category-card { flex: 0 0 140px; padding: 16px 12px; }
+
+  .size-pills { gap: 6px; }
+  .size-pill { min-width: 38px; height: 38px; }
+
+  .product-detail-price { font-size: var(--text-3xl); }
+
+  .tab-content { padding: 20px 16px; }
+
+  .cart-footer { padding: 16px; }
+
+  .footer-about { max-width: 100%; }
+}
+
+/* ── 375px: Minimum breakpoint ── */
+@media (max-width: 375px) {
+  html { font-size: 15px; }
+
+  .container { padding: 0 12px; }
+
+  .products-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  .nav-logo { font-size: 1.4rem; padding: 4px 8px; }
+
+  .section-heading { font-size: 1.75rem; }
+
+  .hero-title { font-size: clamp(1.75rem, 12vw, 2.5rem); }
+
+  .btn-primary, .btn-secondary, .btn-ghost, .btn-whatsapp {
+    padding: 12px 20px;
+    font-size: var(--text-sm);
+  }
+
+  .wacta-title { font-size: 1.5rem; }
+
+  .footer-grid { gap: 24px; }
+}
+
+/* ── Dashboard responsive ── */
+@media (max-width: 768px) {
+  .dashboard-layout { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: var(--border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    z-index: 2000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+  }
+  .sidebar.open { transform: translateX(0); }
+  .dashboard-main { padding: 20px 16px; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .data-table { font-size: var(--text-xs); }
+  .data-table td, .data-table th { padding: 8px 10px; }
+  .modal-panel { width: 95vw; padding: 24px 20px; }
+}
